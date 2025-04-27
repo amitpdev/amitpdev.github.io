@@ -18,40 +18,25 @@ A customizable Google Places autocomplete TextInput component that integrates th
 
 After getting frustrated with the performance limitations of existing range slider components, I built this high-performance dual-knob range slider that maintains 60fps animations even on older devices.
 
-## 🏠 Nester
+### [Jobs AI Search](https://github.com/amitpdev/jobs-ai-search)
 
-[Nester](https://nester.co.il) started as a vision to modernize the home rental experience in Israel. What began as a side project eventually grew into a full-featured rental platform with thousands of users.
+An AI-powered job search platform that delivers semantically relevant results using natural language processing. This proof-of-concept application demonstrates how modern NLP techniques can dramatically improve job search experiences.
 
-### The Journey
+Key features include:
+- Real-time extraction of job preferences as users type natural language queries
+- Dynamic preference bubbles that update search results instantly
+- Semantic search using vector embeddings stored in PostgreSQL 
+- Hybrid search combining semantic relevance with traditional keyword matching
 
-Building Nester was a complete end-to-end product experience. I designed and developed:
+The system architecture consists of four components:
+- A **Worker** that scrapes job listings using Selenium and processes them with transformers
+- An **NLU** service built with RASA that extracts structured information from queries
+- A **FastAPI Backend** that handles search requests with optimized async database operations
+- A **Svelte Frontend** providing a responsive, intuitive search interface
 
-- iOS app (Swift)
-- Android app (React Native)
-- Backend services
-- Admin dashboard
+This project showcases my ability to integrate multiple complex technologies (vector databases, transformer models, web scraping) into a cohesive application that solves a real-world problem in a novel way.
 
-One of the interesting technical challenges was creating a geo-data engine that efficiently handled address search and displayed complex rental zone polygons on MapKit. This required optimizing PostGIS queries and designing a [custom caching layer](/ios-cache-handler) that kept the app responsive even with large datasets.
-
-### Data Collection & Processing
-
-A key innovation behind Nester was its ability to aggregate rental listings from across the web. I developed a sophisticated data pipeline that:
-
-- Collected unstructured rental posts from social media platforms using Python-based web scrapers (Selenium and BeautifulSoup)
-- Processed this raw data through a custom natural language processing system built with pre-LLM era tools (BERT models via Hugging Face)
-- Extracted structured information like addresses, prices, number of bedrooms, square footage, and floor numbers from free-text descriptions
-- Validated and normalized the data to ensure consistency
-
-This approach allowed Nester to offer a comprehensive view of the rental market that no competitor could match, with fresh listings appearing automatically rather than requiring manual entry.
-
-### Technical Highlights
-
-- **In-App Purchases**: Implemented using Apple's StoreKit 2.0, which simplified receipt validation and subscription management
-- **Localization System**: Built a dynamic language switching system with full RTL support for Hebrew
-- **Push Notification Architecture**: Created a segmented notification system allowing targeted messages based on user preferences and geographic areas
-- **CI/CD Pipeline**: Automated the entire release process with GitHub Actions and Fastlane
-
-## 🧭 Ingeo SDK for iOS
+### [Ingeo SDK for iOS](https://github.com/IngeoSDK/ingeo-ios-sdk)
 
 After working on location-based features in multiple apps, I noticed a common pattern - the standard Core Location framework either drained battery quickly or provided inaccurate results. This led me to create the [Ingeo SDK](https://github.com/IngeoSDK/ingeo-ios-sdk).
 
@@ -65,19 +50,54 @@ Written in Objective-C with a clean Swift interface, the SDK uses sophisticated 
 - Context-based sampling rates that adapt to the user's movement patterns
 - Power-optimized background tracking modes that balance accuracy with battery life
 
-### Real-World Testing
+#### Real-World Testing
 
 Unlike many location frameworks only tested in simulations, I tested Ingeo in real-world conditions with friends and family across various transportation modes - walking, cycling, and driving. This hands-on approach revealed insights that simulations would have missed, leading to significant algorithm refinements and better performance.
 
-## 📈 Coin-Ranks
+## 🚀 Products & Applications
 
-[Coin-Ranks](https://coin-ranks.com) is a cryptocurrency tracking tool I built to solve a specific problem in the crypto investment space - understanding historical ranking movements of coins.
+### 🏠 [Nester](https://nester.co.il)
 
-### The Problem
+**Nester** started as a vision to modernize the home rental experience in Israel. What began as a side project eventually grew into a full-featured rental platform with thousands of users.
+
+#### The Journey
+
+Building Nester was a complete end-to-end product experience. I designed and developed:
+
+- iOS app (Swift)
+- Android app (React Native)
+- Backend services
+- Admin dashboard
+
+One of the interesting technical challenges was creating a geo-data engine that efficiently handled address search and displayed complex rental zone polygons on MapKit. This required optimizing PostGIS queries and designing a [custom caching layer](/ios-cache-handler) that kept the app responsive even with large datasets.
+
+#### Data Collection & Processing
+
+A key innovation behind Nester was its ability to aggregate rental listings from across the web. I developed a sophisticated data pipeline that:
+
+- Collected unstructured rental posts from social media platforms using Python-based web scrapers (Selenium and BeautifulSoup)
+- Processed this raw data through a custom natural language processing system built with pre-LLM era tools (BERT models via Hugging Face)
+- Extracted structured information like addresses, prices, number of bedrooms, square footage, and floor numbers from free-text descriptions
+- Validated and normalized the data to ensure consistency
+
+This approach allowed Nester to offer a comprehensive view of the rental market that no competitor could match, with fresh listings appearing automatically rather than requiring manual entry.
+
+#### Technical Highlights
+
+- **In-App Purchases**: Implemented using Apple's StoreKit 2.0, which simplified receipt validation and subscription management
+- **Localization System**: Built a dynamic language switching system with full RTL support for Hebrew
+- **Push Notification Architecture**: Created a segmented notification system allowing targeted messages based on user preferences and geographic areas
+- **CI/CD Pipeline**: Automated the entire release process with GitHub Actions and Fastlane
+
+### 📈 [Coin-Ranks](https://coin-ranks.com)
+
+**Coin-Ranks** is a cryptocurrency tracking tool I built to solve a specific problem in the crypto investment space - understanding historical ranking movements of coins.
+
+#### The Problem
 
 While most crypto platforms focus on price movements, I noticed that coin ranking shifts (based on market capitalization) provide equally valuable insights about market trends and relative performance. When a coin moves up or down in rankings, it often tells a story that pure price data might miss.
 
-### The Solution
+#### The Solution
 
 I developed Coin-Ranks as a web application that pulls data from CoinGecko's API and presents it with a focus on rank shifts over time. The site allows investors to:
 
@@ -86,7 +106,7 @@ I developed Coin-Ranks as a web application that pulls data from CoinGecko's API
 - Identify emerging coins moving up the rankings
 - Spot previously popular coins losing ground
 
-### Tech Stack
+#### Tech Stack
 
 - **Frontend**: React.js with responsive design to work across devices
 - **Backend**: Node.js API service that handles data aggregation
